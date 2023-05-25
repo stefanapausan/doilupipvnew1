@@ -1,0 +1,78 @@
+#proces-verbal-form tr {
+	border-bottom: none!important;
+}
+
+.block .form-radios .form-item {
+display:block;
+}
+
+.form-radios .form-item {
+display:inline;
+}
+
+#edit-service {
+	min-width: 50%;
+}
+
+#view-proces .titlu{
+	text-align: center;
+}
+
+#view-proces .numar_titlu{
+	text-align: center;
+	max-width: 100px !important;
+}
+
+#view-proces .data_titlu{
+	text-align: center;
+		max-width:100px !important;
+}
+
+.finalizat{
+	color:#007239;
+}
+
+.nefinalizat{
+	color:#fe0000;
+}
+
+.finalizat:hover{
+	color:#007239;
+}
+
+.nefinalizat:hover{
+	color:#fe0000;
+}
+
+.finalizat .buton_modif_albastru{
+	min-width:100px !important;
+	display: block;
+	width:60%;
+	font-weight: bold;
+    text-align: center;
+}
+
+.nefinalizat .buton_modif_albastru{
+	min-width:100px !important;
+	width:60%;
+	display: block;
+	font-weight: bold;
+    text-align: center;
+}
+
+td .radio_service {
+	width:50%;
+}
+
+ .kbw-signature { width: 400px; height: 200px;}
+        #sig canvas{
+            width: 100% !important;
+            height: auto;
+        }
+        
+#canvasDiv{
+            position: relative;
+            border: 2px dashed grey;
+            height:300px;
+            width:400px;
+        }

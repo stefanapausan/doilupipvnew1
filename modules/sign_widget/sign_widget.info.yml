@@ -1,0 +1,12 @@
+name: Signature
+type: module
+description: Signature Module
+core_version_requirement: ^8.8 || ^9 || ^10
+package: Field types
+dependencies:
+  - drupal:image
+
+# Information added by Drupal.org packaging script on 2023-04-14
+version: '8.x-1.6'
+project: 'sign_widget'
+datestamp: 1681483056

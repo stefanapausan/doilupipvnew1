@@ -1,0 +1,23 @@
+{
+  "name": "drupal/sign_widget",
+  "description": "This module provides HTML5 canvas drawing smooth signatures",
+  "type": "drupal-module",
+  "minimum-stability": "stable",
+  "homepage": "https://www.drupal.org/project/sign_widget",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/sign_widget",
+    "source": "https://git.drupalcode.org/project/sign_widget"
+  },
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "NGUYEN Bao",
+      "email": "n.bao@yahoo.com",
+      "homepage": "https://www.drupal.org/u/lazzyvn",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/core": "^8.8 || ^9 || ^10"
+  }
+}

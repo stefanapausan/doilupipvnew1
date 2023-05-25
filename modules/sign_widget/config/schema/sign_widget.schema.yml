@@ -1,0 +1,53 @@
+field.widget.settings.sign_widget_widget:
+  type: field.widget.settings.sign_widget
+  mapping:
+    dotSize:
+      type: decimal
+      label: 'Dot size'
+    minWidth:
+      type: decimal
+      label: 'Min width'
+    maxWidth:
+      type: decimal
+      label: 'Max Width'
+    backgroundColor:
+      type: string
+      label: 'Background color'
+    penColor:
+      type: string
+      label: 'Pen color'
+    velocityFilterWeight:
+      type: decimal
+      label: 'Velocity filter weight'
+    signTool:
+      type: boolean
+      label: 'Toolbox'
+    show_remove_btn:
+      type: boolean
+      label: 'Show remove button'
+
+field.formatter.settings.sign_widget_formatter:
+  type: mapping
+  label: 'Image signature formatter'
+  mapping:
+    dotSize:
+      type: decimal
+      label: 'Dot size'
+    maxWidth:
+      type: decimal
+      label: 'Min width'
+    maxHeight:
+      type: decimal
+      label: 'Max height'
+    backgroundColor:
+      type: string
+      label: 'Background color'
+    penColor:
+      type: string
+      label: 'Pen color'
+    velocityFilterWeight:
+      type: decimal
+      label: 'Velocity filter weight'
+    signTool:
+      type: boolean
+      label: 'Toolbox'

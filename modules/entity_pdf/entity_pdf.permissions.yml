@@ -1,0 +1,8 @@
+administer entity pdf settings:
+  title: 'Administer entity pdf settings'
+  restrict access: TRUE
+view entity pdf:
+  title: 'View PDF for all entities'
+  restrict access: TRUE
+permission_callbacks:
+  - Drupal\entity_pdf\Permissions\EnitytPdfPermissions::permissions

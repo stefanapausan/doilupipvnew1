@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Signature Module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function sign_widget_theme() {
+
+  $theme = [];
+  $theme['sign'] = [
+    'render element' => 'element',
+    'template' => 'sign',
+    'variables' => [
+      'label' => '',
+      'canvas_id' => '',
+      'sign_src' => '',
+      'width' => 100,
+      'height' => 40,
+      'settings' => [],
+      'attributes' => [],
+    ],
+  ];
+  return $theme;
+}

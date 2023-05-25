@@ -1,0 +1,154 @@
+.page-wrapper {
+	padding-left: 10%;
+	padding-right:10%;
+	padding-top:5%;
+}
+
+.fcc-btn {
+  background-color: #2f3d4a;
+  color: white;
+  padding: 15px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.buton_modif_albastru {
+  background-color: #0000ff;
+  color: white;
+  padding: 5px 7px;
+  text-decoration: none;
+  min-width:72px;
+  border-radius: 5px;
+}
+
+.buton_modif_albastru:hover {
+	color: white;
+}
+
+.buton_modif_rosu {
+  background-color: #fe0000;
+  color: white;
+  padding: 5px 15px;
+  text-decoration: none;
+min-width:72px;
+  border-radius: 5px;
+}
+
+.buton_modif_rosu:hover {
+	color: white;
+}
+
+.fcc-btn:hover {
+  background-color: #fe0000;
+  color: white;
+}
+
+#block-header {
+	padding-bottom: 3%;
+}
+
+#block-menu {
+	padding-bottom: 3%;
+	
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #2f3d4a;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 18px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: white;
+  font-size: 12px;
+  background-color:#2f3d4a;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #fe0000;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.adauga {
+	
+	margin-top:10%;
+	background-color:#0000ff;
+	font-size: 16px;
+	border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.adauga:hover {
+	
+	margin-top:10%;
+	background-color:#0000ff;
+	font-size: 16px;
+	border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+thead {
+	background-color:#cccccc;
+}

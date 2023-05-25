@@ -1,0 +1,12 @@
+name: Entity PDF
+description: 'Provides PDF output for entities.'
+type: module
+core_version_requirement: ^9.3 || ^10
+dependencies:
+  - drupal:node
+configure: entity_pdf.settings
+
+# Information added by Drupal.org packaging script on 2023-02-14
+version: '2.0.3'
+project: 'entity_pdf'
+datestamp: 1676380810

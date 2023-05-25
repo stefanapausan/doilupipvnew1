@@ -1,0 +1,24 @@
+# External signature_pad
+signature_pad:
+  remote: https://github.com/szimek/signature_pad
+  version: 4.x
+  license:
+    name: MIT licence
+    url: http://www.opensource.org/licenses/mit-license.php
+    gpl-compatible: true
+  js:
+    //cdn.jsdelivr.net/npm/signature_pad@4.1.4/dist/signature_pad.umd.min.js: { type: external, minified: true }
+
+sign_widget:
+  version: VERSION
+  css:
+    base:
+      css/sign_widget.css: {}
+  js:
+    js/sign_widget.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal
+    - core/drupal.ajax
+    - sign_widget/signature_pad

@@ -1,0 +1,53 @@
+<?php
+
+namespace Drupal\test_db\Form;
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Database\Database;
+
+class PartenerForm extends FormBase {
+	
+	// public function __construct(){
+		// var_dump('testtttt');
+		// die;
+	// }
+	
+	public function getFormId(){
+		return 'partener_form';
+	}
+	
+	public function buildForm(array $form, FormStateInterface $form_state){
+		//var_dump('tesssssss');
+		//die;
+		$form['email'] = [
+			'#type' => 'email',
+			'#title' => $this->t('Your email'),
+		];
+		
+		$form['name'] = [
+			'#type' => 'textfield',
+			'#title' => $this->t('Your name'),
+		];
+		$form['actions']['#type'] = 'actions';
+		$form['actions']['submit'] = [
+			'#type' => 'submit',
+			'#value' => $this->t('Save'),
+			'#button_type' => 'primary',
+		];
+		return $form;
+	}
+	
+	public function validateForm(array &$form, FormStateInterface $form_state){
+		if($form_state->getValue('email') == ''){
+			$form_state->setErrorByName('email', $this->t('Email is required'));
+		}
+		if($form_state->getValue('name') == ''){
+			$form_state->setErrorByName('name', $this->t('Name is required'));
+		}
+	}
+	
+	public function submitForm(array &$form, FormStateInterface $form_state){
+		$this->messenger()->addStatus($this->t('Thanks for submmission!!'));
+	}
+}

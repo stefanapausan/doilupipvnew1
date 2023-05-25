@@ -1,0 +1,29 @@
+<div class="signature_panel">
+  <div class="signature">
+    <label class="form-item__label">{{ label }}</label>
+    {% if(sign_src != '') %}
+      <img class="background img-fluid" src="{{ sign_src }}" width="{{ width }}" height="{{ height }}"/>
+    {% endif %}
+    <canvas{{ attributes }}></canvas>
+  </div>
+  {% if(settings['is_formatter']) %}
+    <div class="clearfix toolbox">
+      <div class="btn-group btn-group-sm" role="group">
+        {% if(settings['signTool']) %}
+          <input data-id="{{ attributes.offsetGet('id')|render }}" type="range" min="0" max="10" data-type="dotSize" step="1" class="form-control form-range"/>
+          <input data-id="{{ attributes.offsetGet('id')|render }}" type="color" data-type="penColor" class="form-control form-control-color"/>
+        {% endif %}
+        <button data-id="{{ attributes.offsetGet('id')|render }}" type="button" class="clear btn btn-outline-secondary"><i class="bi bi-x"></i> {{ "Clear"|t }}</button>
+        <button data-id="{{ attributes.offsetGet('id')|render }}" type="button" class="save btn btn-outline-primary"><i class="bi bi-pen"></i> {{ "Save"|t }}</button>
+      </div>
+    </div>
+  {% elseif(settings['signTool']) %}
+    <div class="clearfix toolbox">
+      <div class="btn-group btn-group-sm" role="group">
+        <input data-id="{{ attributes.offsetGet('id')|render }}" type="range" min="0" max="10" data-type="dotSize" step="1" class="form-control form-range"/>
+        <input data-id="{{ attributes.offsetGet('id')|render }}" type="color" data-type="penColor" class="form-control form-control-color"/>
+        <button data-id="{{ attributes.offsetGet('id')|render }}" type="button" class="clear btn btn-outline-secondary"><i class="bi bi-x"></i> {{ "Clear"|t }}</button>
+      </div>
+    </div>
+  {% endif %}
+</div>

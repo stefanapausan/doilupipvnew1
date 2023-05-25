@@ -1,0 +1,111 @@
+<?php
+
+namespace Drupal\test_db\Form;
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Url;
+use Drupal\Core\Routing;
+
+
+use \Drupal\Core\Routing\TrustedRedirectResponse;
+
+/**
+ * Provides the form for adding countries.
+ */
+class EditFurnizor extends FormBase {
+
+
+  public function getFormId() {
+    return 'edit_furnizor_form';
+  }
+
+
+  	public function buildForm(array $form, FormStateInterface $form_state){
+		//var_dump('tesssssss');
+		//die;
+
+		$id_furnzior = \Drupal:: routeMatch()->getParameter('id_furnzior');
+		
+		$query = \Drupal::database();
+		$data = $query->select('dashboard_furnziori','e')
+					  ->fields('e',['id_furnzior','nume_furnzior','telefon_furnzior'])
+					  ->condition('e.id_furnzior',$id_furnzior,'=')
+					  ->execute()->fetchAll(\PDO::FETCH_OBJ);
+		//print_r($data); exit;
+
+		$form['nume_furnzior'] = [
+			'#type' => 'textfield',
+			'#title' => $this->t('Nume furnzior'),
+			'#default_value'=>$data[0]->nume_furnzior,
+			'#required' => TRUE,
+		];
+		
+		$form['telefon_furnzior'] = [
+			'#type' => 'textfield',
+			'#title' => $this->t('Telefon furnzior'),
+			'#default_value'=>$data[0]->telefon_furnzior,
+			'#required' => TRUE,
+		];
+		
+		
+		$form['actions']['#type'] = 'actions';
+		$form['actions']['submit'] = [
+			'#type' => 'submit',
+			'#value' => $this->t('Salveaza'),
+			'#button_type' => 'primary',
+		];
+		return $form;
+	}
+  
+   /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array & $form, FormStateInterface $form_state) {
+       $field = $form_state->getValues();
+	   
+		$fields["nume_furnzior"] = $field['nume_furnzior'];
+		if (!$form_state->getValue('nume_furnzior') || empty($form_state->getValue('nume_furnzior'))) {
+            $form_state->setErrorByName('nume_furnzior', $this->t('Nume furnzior e obligatoriu'));
+        }
+		
+		$fields["telefon_furnzior"] = $field['telefon_furnzior'];
+		if (!$form_state->getValue('telefon_furnzior') || empty($form_state->getValue('telefon_furnzior'))) {
+            $form_state->setErrorByName('telefon_furnzior', $this->t('Telefonul e obligatoriu'));
+        }
+		
+		
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array & $form, FormStateInterface $form_state) {
+	try{//var_dump('tesssssss');
+		//die;
+		
+		$id_furnzior = \Drupal:: routeMatch()->getParameter('id_furnzior');
+		$conn = Database::getConnection();
+		
+		$field = $form_state->getValues();
+	   
+		$fields["nume_furnzior"] = $field['nume_furnzior'];
+		$fields["telefon_furnzior"] = $field['telefon_furnzior'];
+	
+		
+		$conn->update('dashboard_furnziori')
+			   ->fields($fields)
+			   ->condition('id_furnzior',$id_furnzior)
+			   ->execute();
+			   
+		\Drupal::messenger()->addMessage($this->t('Datele au fost salvate'));
+		drupal_flush_all_caches();
+	} catch(Exception $ex){
+		\Drupal::logger('test_db')->error($ex->getMessage());
+	}
+    $response = new \Symfony\Component\HttpFoundation\RedirectResponse('../lista_furnziori');
+	$response->send();
+  }
+
+}

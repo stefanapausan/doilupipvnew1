@@ -1,0 +1,362 @@
+<?php
+use Drupal\Core\Database\Database;
+ 
+/**
+ * Implements hook_schema().
+ */
+function test_db_schema(){
+	$schema= array();
+    $schema['dashboard_procese_verbale'] = array(
+        'description' => 'Tabel pentru procese verbale.',
+        'fields' => array(
+            'id_proces' => array(
+                'description' => 'Id proces verbal',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'nume_client' => array(
+                'description' => 'Nume client',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'telefon_client' => array(
+                'description' => 'Telefon client',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'adresa_client' => array(
+                'description' => 'Adresa client',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'email_client' => array(
+                'description' => 'Email client',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'descriere' => array(
+                'description' => 'Descriere produs',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'brand' => array(
+                'description' => 'Brand produs',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'model' => array(
+                'description' => 'Model produs',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'serie' => array(
+                'description' => 'Serie produs',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'IMEI1' => array(
+                'description' => 'IMEI1 produs',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'IMEI2' => array(
+                'description' => 'IMEI2 produs',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'nr_garantie' => array(
+                'description' => 'Numar garantie',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'nr_factura' => array(
+                'description' => 'Numar factura',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'accesorii' => array(
+                'description' => 'Accesorii produs',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            'aspect' => array(
+                'description' => 'ID aspect',
+                'type' => 'int',
+                'length' => 5,
+                'not null' => TRUE,
+            ),
+			'defect' => array(
+                'description' => 'Defect produs',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'tip_produs' => array(
+                'description' => 'ID tip produs',
+                'type' => 'int',
+                'length' => 5,
+                'not null' => TRUE,
+            ),
+			'service' => array(
+                'description' => 'ID service',
+                'type' => 'int',
+                'length' => 5,
+                'not null' => TRUE,
+            ),
+			'semnatura' => array(
+                'description' => 'Semnatura client',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'data_reclamatie' => array(
+                'description' => 'Data reclamatie',
+                'type' => 'datetime',
+
+                'not null' => FALSE,
+            ),
+			'data_trimitere_service' => array(
+                'description' => 'Data trimitere service',
+                'type' => 'datetime',
+              
+                'not null' => FALSE,
+     
+            ),
+			'finalizat' => array(
+                'description' => '',
+                'type' => 'int',
+				'default' => '0',
+                'not null' => FALSE,
+     
+            ),
+			'data_ridicare' => array(
+                'description' => 'Data ridicare',
+                'type' => 'datetime',
+
+                'not null' => FALSE,
+            ),
+			'semnatura_client_ridicare' => array(
+                'description' => 'Semnatura client ridicare',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			'nume_client_ridicare' => array(
+                'description' => 'Nume client ridicare',
+                'type' => 'varchar',
+                'length' => 50,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+        ),
+        'primary key' => array('id_proces'),
+    );
+	$schema['dashboard_service'] = array(
+        'description' => 'Tabel pentru service',
+        'fields' => array(
+            'id_service' => array(
+                'description' => 'Id service',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'nume_service' => array(
+                'description' => 'Nume service',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'telefon_service' => array(
+                'description' => 'Telefon service',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'adresa_service' => array(
+                'description' => 'Adresa service',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			
+			'detalii_producator' => array(
+                'description' => 'Detalii producator reparatii',
+                'type' => 'text',
+                'size' => 'normal',
+                'not null' => FALSE,
+                'default' => '',
+            ),
+			
+        ),
+        'primary key' => array('id_service'),
+	);
+	$schema['dashboard_curieri'] = array(
+        'description' => 'Tabel pentru curieri',
+        'fields' => array(
+            'id_curier' => array(
+                'description' => 'Id curier',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'nume_curier' => array(
+                'description' => 'Denumire curier',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'telefon_curier' => array(
+                'description' => 'Telefon curier',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            			
+        ),
+        'primary key' => array('id_curier'),
+    );
+	$schema['dashboard_furnizori'] = array(
+        'description' => 'Tabel pentru furnizori',
+        'fields' => array(
+            'id_furnizor' => array(
+                'description' => 'Id furnizor',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'nume_furnizor' => array(
+                'description' => 'Denumire furnizor',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'telefon_furnizor' => array(
+                'description' => 'Telefon furnizor',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            			
+        ),
+        'primary key' => array('id_furnizor'),
+    );
+	$schema['dashboard_aspect'] = array(
+        'description' => 'Tabel pentru aspect estetic produs',
+        'fields' => array(
+            'id_aspect' => array(
+                'description' => 'Id aspect',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'aspect_estetic' => array(
+                'description' => 'Aspect estetic',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            			
+        ),
+        'primary key' => array('id_aspect'),
+    );
+	
+	$schema['dashboard_istoric_produs'] = array(
+        'description' => 'Tabel pentru istoric produs',
+        'fields' => array(
+            'id_istoric' => array(
+                'description' => 'Id istoric',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'id_proces' => array(
+                'description' => 'Id proces',
+                'type' => 'int',
+                'length' => 5,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+			'detalii_istoric' => array(
+                'description' => 'Detalii istoric',
+                'type' => 'text',
+                'default' => '',
+            ),
+			'nume_curier' => array(
+                'description' => 'Nume curier',
+                'type' => 'varchar',
+                'length' => 50,
+                
+            ),
+			'RMA' => array(
+                'description' => 'RMA',
+                 'type' => 'varchar',
+                'length' => 50,
+            ),
+			'AWB' => array(
+                'description' => 'AWB',
+                'type' => 'varchar',
+                'length' => 50,
+            ),
+			'nume_furnizor' => array(
+                'description' => 'Nume furnizor',
+                 'type' => 'varchar',
+                'length' => 50,
+            ),
+			'numar_aviz' => array(
+                'description' => 'Numar aviz',
+                'type' => 'varchar',
+                'length' => 50,
+            ),
+			'nume_reprezentant' => array(
+                'description' => 'Nume reprezentant',
+                'type' => 'varchar',
+                'length' => 50,
+            ),
+			'data_istoric' => array(
+                'description' => 'Data adaugare istoric',
+                'type' => 'datetime',
+            ),
+            			
+        ),
+        'primary key' => array('id_istoric'),
+    );
+    return $schema;
+}

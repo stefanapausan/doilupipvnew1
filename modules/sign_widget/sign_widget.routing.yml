@@ -1,0 +1,7 @@
+sign_widget.sendSign:
+  path: '/ajax/sign_widget/sendSign/{selector}'
+  defaults:
+    _controller: '\Drupal\sign_widget\Form\SendSignForm::saveSign'
+    _title: 'Send signature formatter'
+  requirements:
+    _permission: 'access content'

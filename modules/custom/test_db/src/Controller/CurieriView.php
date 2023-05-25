@@ -1,0 +1,62 @@
+<?php
+
+
+namespace Drupal\test_db\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Database\Database;
+
+
+class CurieriView extends ControllerBase {
+
+  /**
+   * showdata.
+   *
+   * @return string
+   *   Return Table format data.
+   */
+  public function showdata() {
+
+// you can write your own query to fetch the data I have given my example.
+
+    $result = \Drupal::database()->select('dashboard_curieri', 'n')
+            ->fields('n', array('id_curier','nume_curier', 'telefon_curier'))
+            ->execute()->fetchAllAssoc('id_curier');
+// Create the row element.
+    $data=array();
+	foreach ($result as $row){
+		$data[]= [
+			'nume_curier' => $row->nume_curier,
+			'telefon_curier' => $row->telefon_curier,
+			'Edit' => t("<a  class='buton_modif_albastru' href='edit_curier/$row->id_curier'>Modifica</a><br><br><a class='buton_modif_rosu' href='delete_curier/$row->id_curier'>Sterge</a>")
+			//'Delete' => t("<a href='delete_curier/$row->id_curier'>Sterge</a>")
+			];
+	}	
+	
+	
+	
+// Create the header.
+    $header = array('Denumire curier',  'Telefon curier','Optiuni');
+    $output = array(
+      '#theme' => 'table',    // Here you can write #type also instead of #theme.
+      '#header' => $header,
+      '#rows' => $data
+	  
+	  
+    );
+    return $output;
+  }
+  
+  public function deleteCurier($id_curier) {
+	  $query = \Drupal::database();
+	  $query->delete('dashboard_curieri')
+			->condition('id_curier',$id_curier,'=')
+			->execute();
+			
+	  drupal_flush_all_caches();
+	  $response = new \Symfony\Component\HttpFoundation\RedirectResponse('../lista_curieri');
+	  $response->send();
+	  
+	  drupal_set_message(t('Datele au fost sterse!'),'error',TRUE);
+ }
+}

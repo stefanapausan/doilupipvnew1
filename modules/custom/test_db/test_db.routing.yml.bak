@@ -1,0 +1,164 @@
+test_db.listing:
+ path: '/'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\ProceseVerbaleView::showdata'
+  _title: 'Lista procese verbale'
+ requirements:
+  _permission: 'access content'
+
+test_db.view_service_list:
+ path: '/lista_service'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\ServiceView::showdata'
+  _title: 'Lista centre service'
+ requirements:
+  _permission: 'access content'
+  
+test_db.view_curieri_list:
+ path: '/lista_curieri'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\CurieriView::showdata'
+  _title: 'Lista curieri'
+ requirements:
+  _permission: 'access content'
+  
+test_db.view_furnizori_list:
+ path: '/lista_furnizori'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\FurnizoriView::showdata'
+  _title: 'Lista furnizori'
+ requirements:
+  _permission: 'access content'
+  
+test_db.view_aspect_list:
+ path: '/lista_aspect'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\AspectView::showdata'
+  _title: 'Lista aspecte estetice'
+ requirements:
+  _permission: 'access content'  
+  
+test_db.proces_verbal_form:
+ path: '/add_proces_verbal'
+ defaults: 
+  _form: '\Drupal\test_db\Form\ProcesVerbalForm'
+  _title: 'Adauga proces verbal'
+ requirements:
+  _permission: 'access content'
+
+test_db.service_form:
+ path: '/add_service'
+ defaults: 
+  _form: '\Drupal\test_db\Form\ServiceForm'
+  _title: 'Adauga service'
+ requirements:
+  _permission: 'access content'
+
+test_db.curieri_form:
+ path: '/add_curier'
+ defaults: 
+  _form: '\Drupal\test_db\Form\CurierForm'
+  _title: 'Adauga curier'
+ requirements:
+  _permission: 'access content'
+
+test_db.furnizori_form:
+ path: '/add_furnizor'
+ defaults: 
+  _form: '\Drupal\test_db\Form\FurnizorForm'
+  _title: 'Adauga furnizor'
+ requirements:
+  _permission: 'access content'
+
+test_db.aspect_form:
+ path: '/add_aspect'
+ defaults: 
+  _form: '\Drupal\test_db\Form\AspectForm'
+  _title: 'Adauga aspect estetic'
+ requirements:
+  _permission: 'access content'
+  
+test_db.edit_service_form:
+ path: '/edit_service/{id_service}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\EditService'
+  _title: 'Modifica service'
+ requirements:
+  _permission: 'access content'
+  
+test_db.edit_curier_form:
+ path: '/edit_curier/{id_curier}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\EditCurier'
+  _title: 'Modifica curier'
+ requirements:
+  _permission: 'access content'
+  
+test_db.edit_furnizor_form:
+ path: '/edit_furnizor/{id_furnizor}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\EditFurnizor'
+  _title: 'Modifica furnizor'
+ requirements:
+  _permission: 'access content'
+  
+test_db.edit_aspect_form:
+ path: '/edit_aspect/{id_aspect}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\EditAspect'
+  _title: 'Modifica aspect estetic'
+ requirements:
+  _permission: 'access content'
+  
+test_db.edit_proces_verbal:
+ path: '/edit_proces/{id_proces}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\EditProcesVerbal'
+  _title: 'Modifica proces verbal'
+ requirements:
+  _permission: 'access content'
+  
+test_db.view_proces_verbal:
+ path: '/view_proces/{id_proces}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\ViewProcesVerbal'
+  _title: 'Vizualizeaza proces verbal'
+ requirements:
+  _permission: 'access content'
+  
+test_db.finalizare_proces_verbal:
+ path: '/finalizare_proces/{id_proces}'
+ defaults: 
+  _form: '\Drupal\test_db\Form\FinalizareProcesVerbal'
+  _title: 'Finalizare proces verbal'
+ requirements:
+  _permission: 'access content'
+  
+test_db.delete_service:
+ path: '/delete_service/{id_service}'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\ServiceView::deleteService'
+ requirements:
+  _permission: 'access content'
+  
+test_db.delete_curier:
+ path: '/delete_curier/{id_curier}'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\CurieriView::deleteCurier'
+ requirements:
+  _permission: 'access content'
+  
+test_db.delete_furnizor:
+ path: '/delete_furnizor/{id_furnizor}'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\FurnizoriView::deleteFurnizor'
+ requirements:
+  _permission: 'access content'
+  
+test_db.delete_aspect:
+ path: '/delete_aspect/{id_aspect}'
+ defaults: 
+  _controller: '\Drupal\test_db\Controller\AspectView::deleteAspect'
+ requirements:
+  _permission: 'access content'
+  

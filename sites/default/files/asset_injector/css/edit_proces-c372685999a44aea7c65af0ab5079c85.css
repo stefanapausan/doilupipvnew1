@@ -1,0 +1,9 @@
+.edit-proces table td {
+	width:50%;
+}
+
+.finalizare {
+	float:right;
+	background-color:#fe0000;
+	color:white;
+}
